@@ -1,0 +1,11 @@
+.text-center {
+    text-align: center;
+    margin-top: 15px;
+    background: burlywood;
+    font-size:20px;
+  }
+
+body {
+    /*background-image: url("ironman.jpg");*/
+    background-color: #cccccc;
+   }

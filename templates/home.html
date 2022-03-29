@@ -1,0 +1,6 @@
+{%extends "layout.html"%}
+{%block content%}
+  {%for post in posts %}
+    <p>Movie : {{post.Movie_name}} Genre :{{post.Genre}}</p>
+  {%endfor%}
+{%endblock content %}
