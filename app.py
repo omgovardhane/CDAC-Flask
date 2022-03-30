@@ -11,7 +11,7 @@ posts = [
     },
     {
         'Movie_name':'Iron man2',
-        'Genre':'Action|War'
+        'Genre':'Action'
     }
 ]
 @app.route("/")
