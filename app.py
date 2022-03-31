@@ -7,7 +7,7 @@ posts = [
 
     {
         'Movie_name':'Iron man',
-        'Genre':'Action'
+        'Genre':'Action sushil'
     },
     {
         'Movie_name':'Iron man2',
