@@ -25,7 +25,7 @@ def rate():
 
 @app.route("/presentation")
 def present():
-    import recommend 
+    import recommend
     a =recommend.give_recom()
     return render_template('presentation.html',lms=a)
 

@@ -1,3 +1,4 @@
+from pyexpat import model
 from pyspark.sql import SparkSession
 from pyspark.sql import SparkSession, SQLContext
 #from pyspark import SparkConf, SparkContext
@@ -6,7 +7,7 @@ import findspark
 from pyspark import SparkFiles
 #import json
 import pyspark.sql.functions as f
-from pyspark.ml.recommendation import ALS
+from pyspark.ml.recommendation import ALS, ALSModel
 from pyspark.ml.evaluation import RegressionEvaluator
 findspark.init()
 findspark.find()
@@ -23,11 +24,13 @@ spark=SparkSession\
         .config("spark.jars.packages","org.mongodb.spark:mongo-spark-connector_2.12:2.4.2")\
         .getOrCreate()
 
+raw_df = spark.read.format("com.mongodb.spark.sql.DefaultSource").option("database", "Project").option("collection", "rating").load()
+raw_df = raw_df.drop("_id")
+ml_df = spark.read.format("com.mongodb.spark.sql.DefaultSource").option("database", "Project").option("collection", "movies").load()
+ml_df = ml_df.drop("_id")
+
 def give_recom():
-        raw_df = spark.read.format("com.mongodb.spark.sql.DefaultSource").option("database", "Project").option("collection", "rating").load()
-        raw_df = raw_df.drop("_id")
-        ml_df = spark.read.format("com.mongodb.spark.sql.DefaultSource").option("database", "Project").option("collection", "movies").load()
-        ml_df = ml_df.drop("_id")
+        
         als=ALS(maxIter=10, regParam=0.5,userCol='userId',itemCol='movieId',ratingCol='rating',coldStartStrategy='drop')
         train_df,test_df=raw_df.randomSplit([0.7,0.3])
         model=als.fit(train_df)
