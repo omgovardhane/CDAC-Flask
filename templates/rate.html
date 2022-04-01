@@ -1,0 +1,37 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class="text-center">
+    <form action="{{ url_for('rate')}}" method="POST">
+        <p>
+        <label for="movie1">One Flew Over the Cuckoo's Nest</label>
+        <input class="input-space" type="number" id="rcorners2" name="movie1" placeholder="Enter Rating"/>
+        </p>
+        <p>
+        <label for="movie1">James and the Giant Peach</label>
+        <input class="input-space" type="number" id="rcorners2" name="movie2" placeholder="Enter Rating">
+        </p>
+        <p>
+        <label for="movie1">My Fair Lady </label>
+        <input class="input-space" type="number" id="rcorners2" name="movie3" placeholder="Enter Rating">
+        </p>
+        <p>
+        <label for="movie1">Erin Brockovich </label>
+        <input class="input-space" type="number" id="rcorners2" name="movie4" placeholder="Enter Rating">
+        </p>
+        <p>
+        <label for="movie1">Bug's Life, A </label>
+        <input class="input-space" type="number" id="rcorners2" name="movie5" placeholder="Enter Rating">
+        </p>
+        <button type="submit">Rate</button>
+    </form>
+</div>
+<style>
+    #rcorners2 {
+    border-radius: 10px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 165px;
+    height: 15px;
+  }
+</style>
+{%endblock content %}

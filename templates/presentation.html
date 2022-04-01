@@ -1,4 +1,6 @@
 {%extends "layout.html"%}
 {%block content%}
-    
+  {%for i in lms %}
+    <p>Movie : {{i}}</p>
+  {%endfor%}
 {%endblock content %}
