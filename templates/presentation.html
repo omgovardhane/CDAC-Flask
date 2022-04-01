@@ -1,6 +1,24 @@
 {%extends "layout.html"%}
 {%block content%}
   {%for i in lms %}
-    <p>Movie : {{i}}</p>
+    <table class="center">
+      <tr>
+        <td>{{i}}</td>
+      </tr>  
+    </table>
   {%endfor%}
 {%endblock content %}
+
+
+<style>
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+   
+  table,th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  
+</style>

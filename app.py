@@ -1,3 +1,4 @@
+from crypt import methods
 import re
 from flask import Flask ,render_template, url_for,request
 app = Flask(__name__)
@@ -6,9 +7,10 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route("/code")
-def code():
-    return render_template('code.html')
+@app.route("/downdump")
+def downdump():
+    return render_template('downdump.html')
+
 
 @app.route('/rate', methods =["GET", "POST"])
 def rate():
@@ -22,6 +24,8 @@ def rate():
         import get_user_rating
         get_user_rating.update_rating(dit)
     return render_template('rate.html')
+
+    
 
 @app.route("/presentation")
 def present():

@@ -2,27 +2,35 @@
 {%block content%}
 <div class="text-center">
     <form action="{{ url_for('rate')}}" method="POST">
-        <p>
-        <label for="movie1">One Flew Over the Cuckoo's Nest</label>
-        <input class="input-space" type="number" id="rcorners2" name="movie1" placeholder="Enter Rating"/>
-        </p>
-        <p>
-        <label for="movie1">James and the Giant Peach</label>
-        <input class="input-space" type="number" id="rcorners2" name="movie2" placeholder="Enter Rating">
-        </p>
-        <p>
-        <label for="movie1">My Fair Lady </label>
-        <input class="input-space" type="number" id="rcorners2" name="movie3" placeholder="Enter Rating">
-        </p>
-        <p>
-        <label for="movie1">Erin Brockovich </label>
-        <input class="input-space" type="number" id="rcorners2" name="movie4" placeholder="Enter Rating">
-        </p>
-        <p>
-        <label for="movie1">Bug's Life, A </label>
-        <input class="input-space" type="number" id="rcorners2" name="movie5" placeholder="Enter Rating">
-        </p>
-        <button type="submit">Rate</button>
+        <table class="center">
+            <tr>
+                <td><label for="movie1">One Flew Over the Cuckoo's Nest</label></td>
+                <td><input class="input-space" type="number" id="rcorners2" name="movie1" placeholder="Enter Rating"/></td>
+            </tr>
+            <tr>
+                <td><label for="movie1">James and the Giant Peach</label></td>
+                <td><input class="input-space" type="number" id="rcorners2" name="movie2" placeholder="Enter Rating"></td>
+            </tr>
+            <tr>
+                <td><label for="movie1">My Fair Lady </label></td>
+                <td><input class="input-space" type="number" id="rcorners2" name="movie3" placeholder="Enter Rating"></td>
+            </tr>
+            <tr>
+                <td><label for="movie1">Erin Brockovich </label></td>
+                <td> <input class="input-space" type="number" id="rcorners2" name="movie4" placeholder="Enter Rating"></td>
+            </tr>
+            <tr>
+                <td><label for="movie1">Bug's Life, A </label></td>
+                <td><input class="input-space" type="number" id="rcorners2" name="movie5" placeholder="Enter Rating"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Rate</button></td>
+            </tr>
+        </table>   
     </form>
 </div>
 <style>
@@ -33,5 +41,16 @@
     width: 165px;
     height: 15px;
   }
+  
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+   
+  table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  
 </style>
 {%endblock content %}
