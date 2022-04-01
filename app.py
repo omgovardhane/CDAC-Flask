@@ -1,11 +1,7 @@
 import re
 from flask import Flask ,render_template, url_for
-import recom_movie
-
 
 app = Flask(__name__)
-
-
 
 
 posts = [
@@ -38,12 +34,6 @@ def present():
 @app.route("/member")
 def member():
     return render_template('member.html')
-
- 
-
-
-
-
 
 
 if __name__=="__main__":
