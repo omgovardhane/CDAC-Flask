@@ -1,4 +1,4 @@
-from crypt import methods
+
 import re
 from flask import Flask ,render_template, url_for,request
 app = Flask(__name__)
@@ -32,6 +32,17 @@ def present():
     import recommend
     a =recommend.give_recom()
     return render_template('presentation.html',lms=a)
+
+
+@app.route("/down")
+def down():
+    import down
+    return render_template('done.html')
+
+@app.route("/dump")
+def dump():
+    import dump_data
+    return render_template('done.html')
 
 
 if __name__=="__main__":
