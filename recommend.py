@@ -32,9 +32,15 @@ ml_df = ml_df.drop("_id")
 def give_recom():
         
         als=ALS(maxIter=10, regParam=0.5,userCol='userId',itemCol='movieId',ratingCol='rating',coldStartStrategy='drop')
+
         train_df,test_df=raw_df.randomSplit([0.7,0.3])
+
         model=als.fit(train_df)
+
         recomd_df=model.recommendForUserSubset(raw_df.filter('userId==1'),10)
+
         ex_df=recomd_df.select(f.col('userId'),f.explode('recommendations').alias('recom')).select('userId','recom.movieId','recom.rating')
+
         df_op = ex_df.join(ml_df,'movieId').select('title')
+        
         return [data[0] for data in df_op.select('title').collect()]
