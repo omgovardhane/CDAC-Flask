@@ -6,5 +6,5 @@ with urlopen(zipurl) as zipresp:
     print('Downloading zip....')
     with ZipFile(BytesIO(zipresp.read())) as zfile:
         print('Extracting...')
-        zfile.extractall(r'D:\Dataset')
+        zfile.extractall(r'/home/hduser/dataset/')
 print('Extracted...')

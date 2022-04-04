@@ -24,7 +24,7 @@ spark=SparkSession\
         .getOrCreate()
 
 
-df_rating = spark.read.format("csv").option("delimiter", "::").option('inferSchema',True).load("/home/hduser/Dataset/ratings.dat")
+df_rating = spark.read.format("csv").option("delimiter", "::").option('inferSchema',True).load("/home/hduser/dataset/ml-1m/ratings.dat")
 df_rating=df_rating.drop('_c3')
 
 df_rating=df_rating.withColumnRenamed("_c0","userId")
@@ -35,7 +35,7 @@ df_rating=df_rating.withColumnRenamed("_c2","rating")
 
 df_rating.write.format("com.mongodb.spark.sql.DefaultSource").option("database","Project").option("collection", "rating").save()
 
-df_movies = spark.read.format("csv").option("delimiter", "::").option('inferSchema',True).load("/home/hduser/Dataset/movies.dat")
+df_movies = spark.read.format("csv").option("delimiter", "::").option('inferSchema',True).load("/home/hduser/dataset/ml-1m/movies.dat")
 
 
 df_movies=df_movies.withColumnRenamed("_c0","movieId")
