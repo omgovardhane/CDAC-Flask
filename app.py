@@ -23,6 +23,7 @@ def rate():
         dit={1193:mov_rating_1,661:mov_rating_2,914:mov_rating_3,3408:mov_rating_4,2355:mov_rating_5}
         import get_user_rating
         get_user_rating.update_rating(dit)
+        present()
     return render_template('rate.html')
 
     
@@ -46,7 +47,7 @@ def dump():
 
 
 if __name__=="__main__":
-    app.run(debug=True,port = 8000)
+    app.run(debug=True,port = 8080)
 
 
 
